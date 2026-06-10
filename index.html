@@ -6,7 +6,19 @@
     <title>ReyLayouts | Web Developer</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #fdfdfd; color: #222; display: flex; justify-content: center; padding: 40px 20px; margin: 0; }
+        /* Efek Animasi Masuk */
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #fdfdfd; 
+            color: #222; 
+            display: flex; 
+            justify-content: center; 
+            padding: 40px 20px; 
+            margin: 0; 
+            animation: fadeIn 0.8s ease-in;
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
         .container { max-width: 450px; width: 100%; text-align: center; }
         .logo { width: 120px; margin-bottom: 10px; }
         h1 { font-size: 24px; margin-bottom: 5px; }
@@ -14,6 +26,13 @@
         
         .btn { display: block; background: #ffffff; border: 1px solid #e0e0e0; padding: 18px; margin: 12px 0; text-decoration: none; color: #222; border-radius: 12px; transition: all 0.3s ease; font-weight: 600; }
         .btn:hover { background: #000; color: #fff; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .btn-cta { background: #000; color: #fff; border: none; }
+        
+        /* Statistik */
+        .stats { display: flex; justify-content: space-around; margin: 30px 0; padding: 20px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+        .stat-box { display: flex; flex-direction: column; }
+        .stat-box strong { font-size: 20px; color: #000; }
+        .stat-box span { font-size: 11px; color: #888; }
         
         .portfolio h2, .testi h2 { font-size: 18px; margin-top: 40px; margin-bottom: 15px; text-align: left; }
         .card { background: #eee; height: 180px; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #888; border: 2px dashed #ddd; margin-bottom: 10px; }
@@ -26,15 +45,20 @@
 
     <div class="container">
         <header>
-            <img src="1781052307577.png" alt="ReyLayouts Logo" class="logo">
+            <img src="logo.png" alt="ReyLayouts Logo" class="logo">
             <h1>ReyLayouts</h1>
             <p>Membantu UMKM Go Digital dengan Web Profesional.</p>
         </header>
 
+        <section class="stats">
+            <div class="stat-box"><strong>10+</strong><span>Project</span></div>
+            <div class="stat-box"><strong>100%</strong><span>Puas</span></div>
+        </section>
+
         <nav class="links">
             <a href="#" class="btn">Lihat Katalog Template</a>
             <a href="#" class="btn">Jasa Pembuatan Web</a>
-            <a href="https://wa.me/6283136106128" class="btn">Konsultasi via WhatsApp</a>
+            <a href="https://wa.me/628XXXXXXXXXX" class="btn">Konsultasi via WhatsApp</a>
         </nav>
 
         <section class="portfolio">
@@ -48,6 +72,10 @@
                 "Puas banget! Web-nya fast loading dan tampilannya bikin jualan gue kelihatan naik kelas. Thanks Rey!"
             </div>
         </section>
+        
+        <div style="margin-top: 40px;">
+            <a href="https://wa.me/628XXXXXXXXXX" class="btn btn-cta">🚀 Konsultasi Gratis Sekarang</a>
+        </div>
 
         <footer>
             &copy; 2026 ReyLayouts. All rights reserved.
