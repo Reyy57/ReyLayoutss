@@ -6,58 +6,20 @@
     <title>ReyLayouts | Web Developer</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        /* CSS Gabungan */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #fdfdfd;
-            color: #222;
-            display: flex;
-            justify-content: center;
-            padding: 40px 20px;
-            margin: 0;
-        }
-        .container {
-            max-width: 450px;
-            width: 100%;
-            text-align: center;
-        }
-        .logo {
-            width: 150px;
-            margin-bottom: 10px;
-        }
+        body { font-family: 'Inter', sans-serif; background-color: #fdfdfd; color: #222; display: flex; justify-content: center; padding: 40px 20px; margin: 0; }
+        .container { max-width: 450px; width: 100%; text-align: center; }
+        .logo { width: 120px; margin-bottom: 10px; }
         h1 { font-size: 24px; margin-bottom: 5px; }
-        p { color: #666; margin-bottom: 40px; font-size: 14px; }
+        p { color: #666; margin-bottom: 30px; font-size: 14px; }
         
-        .btn {
-            display: block;
-            background: #ffffff;
-            border: 1px solid #e0e0e0;
-            padding: 18px;
-            margin: 15px 0;
-            text-decoration: none;
-            color: #222;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            font-weight: 600;
-        }
-        .btn:hover {
-            background: #000;
-            color: #fff;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        .portfolio h2 { font-size: 18px; margin-top: 40px; }
-        .card {
-            background: #f0f0f0;
-            height: 200px;
-            border-radius: 15px;
-            margin-top: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            border: 2px dashed #ddd;
-        }
+        .btn { display: block; background: #ffffff; border: 1px solid #e0e0e0; padding: 18px; margin: 12px 0; text-decoration: none; color: #222; border-radius: 12px; transition: all 0.3s ease; font-weight: 600; }
+        .btn:hover { background: #000; color: #fff; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        
+        .portfolio h2, .testi h2 { font-size: 18px; margin-top: 40px; margin-bottom: 15px; text-align: left; }
+        .card { background: #eee; height: 180px; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #888; border: 2px dashed #ddd; margin-bottom: 10px; }
+        
+        .testi-card { background: #fff; padding: 20px; border-radius: 12px; border: 1px solid #f0f0f0; text-align: left; font-size: 13px; font-style: italic; color: #555; }
+        footer { margin-top: 50px; font-size: 12px; color: #aaa; }
     </style>
 </head>
 <body>
@@ -72,15 +34,24 @@
         <nav class="links">
             <a href="#" class="btn">Lihat Katalog Template</a>
             <a href="#" class="btn">Jasa Pembuatan Web</a>
-            <a href="https://wa.me/628XXXXXXXXXX" class="btn">Konsultasi via WhatsApp</a>
+            <a href="https://wa.me/6283136106128" class="btn">Konsultasi via WhatsApp</a>
         </nav>
 
         <section class="portfolio">
-            <h2>Hasil Karya</h2>
-            <div class="card">
-                <p>Preview Project Disini</p>
+            <h2>Portfolio Unggulan</h2>
+            <div class="card">Gambar Preview Web Lu</div>
+        </section>
+
+        <section class="testi">
+            <h2>Kata Klien</h2>
+            <div class="testi-card">
+                "Puas banget! Web-nya fast loading dan tampilannya bikin jualan gue kelihatan naik kelas. Thanks Rey!"
             </div>
         </section>
+
+        <footer>
+            &copy; 2026 ReyLayouts. All rights reserved.
+        </footer>
     </div>
 
 </body>
