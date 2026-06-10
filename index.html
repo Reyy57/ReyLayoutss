@@ -6,17 +6,7 @@
     <title>ReyLayouts | Web Developer</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        /* Efek Animasi Masuk */
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: #fdfdfd; 
-            color: #222; 
-            display: flex; 
-            justify-content: center; 
-            padding: 40px 20px; 
-            margin: 0; 
-            animation: fadeIn 0.8s ease-in;
-        }
+        body { font-family: 'Inter', sans-serif; background-color: #fdfdfd; color: #222; display: flex; justify-content: center; padding: 40px 20px; margin: 0; animation: fadeIn 0.8s ease-in; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         
         .container { max-width: 450px; width: 100%; text-align: center; }
@@ -28,16 +18,16 @@
         .btn:hover { background: #000; color: #fff; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
         .btn-cta { background: #000; color: #fff; border: none; }
         
-        /* Statistik */
         .stats { display: flex; justify-content: space-around; margin: 30px 0; padding: 20px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
         .stat-box { display: flex; flex-direction: column; }
         .stat-box strong { font-size: 20px; color: #000; }
         .stat-box span { font-size: 11px; color: #888; }
         
-        .portfolio h2, .testi h2 { font-size: 18px; margin-top: 40px; margin-bottom: 15px; text-align: left; }
+        .portfolio h2, .testi h2, .keunggulan h2 { font-size: 18px; margin-top: 40px; margin-bottom: 15px; text-align: left; }
         .card { background: #eee; height: 180px; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #888; border: 2px dashed #ddd; margin-bottom: 10px; }
         
         .testi-card { background: #fff; padding: 20px; border-radius: 12px; border: 1px solid #f0f0f0; text-align: left; font-size: 13px; font-style: italic; color: #555; }
+        .keunggulan p { text-align: left; font-size: 13px; color: #555; line-height: 1.6; margin-bottom: 0; }
         footer { margin-top: 50px; font-size: 12px; color: #aaa; }
     </style>
 </head>
@@ -58,12 +48,22 @@
         <nav class="links">
             <a href="#" class="btn">Lihat Katalog Template</a>
             <a href="#" class="btn">Jasa Pembuatan Web</a>
+            <a href="https://instagram.com/username-lu" class="btn" style="border: 1px solid #000;">Cek Portfolio Lengkap di IG</a>
             <a href="https://wa.me/628XXXXXXXXXX" class="btn">Konsultasi via WhatsApp</a>
         </nav>
 
         <section class="portfolio">
             <h2>Portfolio Unggulan</h2>
             <div class="card">Gambar Preview Web Lu</div>
+        </section>
+
+        <section class="keunggulan">
+            <h2>Kenapa Pilih Kami?</h2>
+            <p>
+                ✅ <b>Desain Modern & Responsif</b> (Pasti cakep di HP)<br>
+                ✅ <b>Loading Super Cepat</b> (Bikin calon pembeli betah)<br>
+                ✅ <b>Bantuan Setup Sampai Jadi</b> (Gak pake ribet)
+            </p>
         </section>
 
         <section class="testi">
