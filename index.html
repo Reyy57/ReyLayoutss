@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReyLayouts | Web Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Gabungan */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fdfdfd;
+            color: #222;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+        }
+        .logo {
+            width: 150px;
+            margin-bottom: 10px;
+        }
+        h1 { font-size: 24px; margin-bottom: 5px; }
+        p { color: #666; margin-bottom: 40px; font-size: 14px; }
+        
+        .btn {
+            display: block;
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            padding: 18px;
+            margin: 15px 0;
+            text-decoration: none;
+            color: #222;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        .btn:hover {
+            background: #000;
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .portfolio h2 { font-size: 18px; margin-top: 40px; }
+        .card {
+            background: #f0f0f0;
+            height: 200px;
+            border-radius: 15px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            border: 2px dashed #ddd;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <img src="logo.png" alt="ReyLayouts Logo" class="logo">
+            <h1>ReyLayouts</h1>
+            <p>Membantu UMKM Go Digital dengan Web Profesional.</p>
+        </header>
+
+        <nav class="links">
+            <a href="#" class="btn">Lihat Katalog Template</a>
+            <a href="#" class="btn">Jasa Pembuatan Web</a>
+            <a href="https://wa.me/628XXXXXXXXXX" class="btn">Konsultasi via WhatsApp</a>
+        </nav>
+
+        <section class="portfolio">
+            <h2>Hasil Karya</h2>
+            <div class="card">
+                <p>Preview Project Disini</p>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
