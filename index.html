@@ -10,25 +10,30 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         
         .container { max-width: 450px; width: 100%; text-align: center; }
-        .logo { width: 120px; margin-bottom: 10px; }
-        h1 { font-size: 24px; margin-bottom: 5px; }
-        p { color: #666; margin-bottom: 30px; font-size: 14px; }
+        .logo { width: 130px; margin-bottom: 15px; }
+        h1 { font-size: 28px; margin-bottom: 8px; }
+        p { color: #555; margin-bottom: 30px; font-size: 16px; line-height: 1.5; }
         
-        .btn { display: block; background: #ffffff; border: 1px solid #e0e0e0; padding: 18px; margin: 12px 0; text-decoration: none; color: #222; border-radius: 12px; transition: all 0.3s ease; font-weight: 600; }
+        .btn { display: block; background: #ffffff; border: 1px solid #e0e0e0; padding: 20px; margin: 15px 0; text-decoration: none; color: #222; border-radius: 14px; transition: all 0.3s ease; font-weight: 600; font-size: 15px; }
         .btn:hover { background: #000; color: #fff; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        .btn-cta { background: #000; color: #fff; border: none; }
+        .btn-cta { background: #000; color: #fff; border: none; font-size: 16px; }
         
-        .stats { display: flex; justify-content: space-around; margin: 30px 0; padding: 20px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
-        .stat-box { display: flex; flex-direction: column; }
-        .stat-box strong { font-size: 20px; color: #000; }
-        .stat-box span { font-size: 11px; color: #888; }
+        .stats { display: flex; justify-content: space-around; margin: 35px 0; padding: 20px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+        .stat-box strong { font-size: 24px; display: block; }
+        .stat-box span { font-size: 13px; color: #777; }
         
-        .portfolio h2, .testi h2, .keunggulan h2 { font-size: 18px; margin-top: 40px; margin-bottom: 15px; text-align: left; }
-        .card { background: #eee; height: 180px; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #888; border: 2px dashed #ddd; margin-bottom: 10px; }
+        h2 { font-size: 20px; margin-top: 45px; margin-bottom: 15px; text-align: left; }
+        .card { background: #eee; height: 190px; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #888; border: 2px dashed #ddd; margin-bottom: 10px; font-size: 14px; }
         
-        .testi-card { background: #fff; padding: 20px; border-radius: 12px; border: 1px solid #f0f0f0; text-align: left; font-size: 13px; font-style: italic; color: #555; }
-        .keunggulan p { text-align: left; font-size: 13px; color: #555; line-height: 1.6; margin-bottom: 0; }
-        footer { margin-top: 50px; font-size: 12px; color: #aaa; }
+        .testi-card { background: #fff; padding: 22px; border-radius: 14px; border: 1px solid #f0f0f0; text-align: left; font-size: 15px; font-style: italic; color: #444; line-height: 1.6; }
+        .keunggulan p { text-align: left; font-size: 15px; color: #444; line-height: 1.7; margin-bottom: 0; }
+        
+        .faq { text-align: left; margin-top: 30px; }
+        .faq-item { margin-bottom: 15px; }
+        .faq-item strong { font-size: 15px; display: block; margin-bottom: 5px; }
+        .faq-item span { font-size: 14px; color: #666; }
+        
+        footer { margin-top: 60px; font-size: 13px; color: #bbb; }
     </style>
 </head>
 <body>
@@ -37,7 +42,7 @@
         <header>
             <img src="1781052307577.png" alt="ReyLayouts Logo" class="logo">
             <h1>ReyLayouts</h1>
-            <p>Membantu UMKM Go Digital dengan Web Profesional.</p>
+            <p>Membantu UMKM Go Digital dengan Web Profesional & Elegan.</p>
         </header>
 
         <section class="stats">
@@ -48,21 +53,21 @@
         <nav class="links">
             <a href="#" class="btn">Lihat Katalog Template</a>
             <a href="#" class="btn">Jasa Pembuatan Web</a>
-            <a href="https://instagram.com/r3yhandsomee" class="btn" style="border: 1px solid #000;">Cek Portfolio Lengkap di IG</a>
-            <a href="https://wa.me/6283136106128" class="btn">Konsultasi via WhatsApp</a>
+            <a href="https://instagram.com/username-lu" class="btn" style="border: 1px solid #000;">Cek Portfolio Lengkap di IG</a>
+            <a href="https://wa.me/628XXXXXXXXXX" class="btn">Konsultasi via WhatsApp</a>
         </nav>
 
         <section class="portfolio">
             <h2>Portfolio Unggulan</h2>
-            <div class="card">Screenshot_20260609-063331_Chrome.jpg</div>
+            <div class="card">Gambar Preview Web Lu</div>
         </section>
 
         <section class="keunggulan">
             <h2>Kenapa Pilih Kami?</h2>
             <p>
-                ✅ <b>Desain Modern & Responsif</b> (Pasti cakep di HP)<br>
-                ✅ <b>Loading Super Cepat</b> (Bikin calon pembeli betah)<br>
-                ✅ <b>Bantuan Setup Sampai Jadi</b> (Gak pake ribet)
+                ✅ <b>Desain Modern & Responsif</b><br>
+                ✅ <b>Loading Super Cepat</b><br>
+                ✅ <b>Bantuan Setup Sampai Jadi</b>
             </p>
         </section>
 
@@ -72,9 +77,15 @@
                 "Puas banget! Web-nya fast loading dan tampilannya bikin jualan gue kelihatan naik kelas. Thanks Rey!"
             </div>
         </section>
+
+        <section class="faq">
+            <h2>FAQ</h2>
+            <div class="faq-item"><strong>Berapa lama pengerjaan?</strong> <span>Hanya 1-3 hari kerja.</span></div>
+            <div class="faq-item"><strong>Apakah bisa request desain?</strong> <span>Tentu, bisa disesuaikan dengan brand kamu.</span></div>
+        </section>
         
-        <div style="margin-top: 40px;">
-            <a href="https://wa.me/6283136106128" class="btn btn-cta">🚀 Konsultasi Gratis Sekarang</a>
+        <div style="margin-top: 50px;">
+            <a href="https://wa.me/628XXXXXXXXXX" class="btn btn-cta">🚀 Konsultasi Gratis Sekarang</a>
         </div>
 
         <footer>
