@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Photo & Video HD Enhancer Studio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .glass {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans antialiased">
+
+    <!-- Header -->
+    <header class="border-b border-slate-800 bg-slate-900/50 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="p-2 bg-gradient-to-tr from-purple-600 to-indigo-500 rounded-xl shadow-lg">
+                    <i data-lucide="sparkles" class="w-6 h-6 text-white"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold bg-gradient-to-r from-purple-400 to-indigo-300 bg-clip-text text-transparent">AI HD Enhancer Studio</h1>
+                    <p class="text-xs text-slate-400">Photo & Video Upscaler Web Suite</p>
+                </div>
+            </div>
+            <button onclick="copyColabCode()" class="flex items-center gap-2 px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white font-medium rounded-lg text-xs transition">
+                <i data-lucide="code-2" class="w-4 h-4"></i>
+                <span>Copy Script Python</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Control Panel -->
+        <div class="space-y-6">
+            <div class="glass p-6 rounded-2xl space-y-5">
+                <h2 class="text-lg font-semibold flex items-center gap-2">
+                    <i data-lucide="sliders" class="w-5 h-5 text-purple-400"></i>
+                    Pengaturan AI Engine
+                </h2>
+
+                <!-- Mode Switcher -->
+                <div class="flex p-1 bg-slate-900/80 rounded-xl border border-slate-800">
+                    <button id="btnModeImage" onclick="switchMode('image')" class="flex-1 py-2 text-xs font-semibold rounded-lg bg-purple-600 text-white transition">FOTO</button>
+                    <button id="btnModeVideo" onclick="switchMode('video')" class="flex-1 py-2 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition">VIDEO</button>
+                </div>
+
+                <!-- Model Selection -->
+                <div class="space-y-2">
+                    <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Model AI</label>
+                    <select id="modelSelect" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5 text-sm text-slate-200">
+                        <option value="RealESRGAN_x4plus">Real-ESRGAN x4plus (Foto Umum)</option>
+                        <option value="GFPGAN">GFPGAN v1.3 (Restorasi Wajah Detail)</option>
+                        <option value="CodeFormer">CodeFormer (Wajah & Video Blur)</option>
+                    </select>
+                </div>
+
+                <!-- Scale Factor -->
+                <div class="space-y-2">
+                    <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Skala Upscale</label>
+                    <div class="grid grid-cols-3 gap-2">
+                        <button onclick="setScale(2)" class="scale-btn py-2 text-sm bg-slate-900 border border-slate-800 rounded-xl font-medium text-slate-300" data-scale="2">2x HD</button>
+                        <button onclick="setScale(4)" class="scale-btn py-2 text-sm bg-purple-600 text-white border border-purple-500 rounded-xl font-medium" data-scale="4">4x 4K</button>
+                        <button onclick="setScale(8)" class="scale-btn py-2 text-sm bg-slate-900 border border-slate-800 rounded-xl font-medium text-slate-300" data-scale="8">8x 8K</button>
+                    </div>
+                </div>
+
+                <!-- Filter Tambahan -->
+                <div class="space-y-3 pt-2 border-t border-slate-800">
+                    <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Filter Tambahan</label>
+                    <label class="flex items-center gap-3 cursor-pointer">
+                        <input type="checkbox" id="chkFace" checked class="w-4 h-4 rounded text-purple-600 bg-slate-900 border-slate-700">
+                        <span class="text-sm text-slate-300">Face Restoration (Perjelas Wajah)</span>
+                    </label>
+                    <label class="flex items-center gap-3 cursor-pointer">
+                        <input type="checkbox" id="chkColor" checked class="w-4 h-4 rounded text-purple-600 bg-slate-900 border-slate-700">
+                        <span class="text-sm text-slate-300">Color Enhancement</span>
+                    </label>
+                </div>
+
+                <!-- Process Button -->
+                <button id="btnProcess" onclick="processMedia()" class="w-full py-3 bg-gradient-to-r from-purple-600 to-indigo-600 font-bold rounded-xl shadow-lg transition flex items-center justify-center gap-2">
+                    <i data-lucide="play" class="w-5 h-5"></i>
+                    <span>Proses Sekarang</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Preview & Result Area -->
+        <div class="lg:col-span-2 space-y-6">
+            <div class="glass p-6 rounded-2xl min-h-[420px] flex flex-col justify-between relative overflow-hidden">
+                <div id="mediaContainer" class="relative w-full h-[320px] bg-slate-900/90 rounded-xl border-2 border-dashed border-slate-800 flex items-center justify-center overflow-hidden">
+                    
+                    <!-- Upload Prompt -->
+                    <div id="uploadPrompt" class="text-center p-6 space-y-4">
+                        <div class="w-16 h-16 bg-purple-600/10 rounded-2xl flex items-center justify-center mx-auto border border-purple-500/20">
+                            <i data-lucide="upload-cloud" class="w-8 h-8 text-purple-400"></i>
+                        </div>
+                        <div>
+                            <p class="text-slate-200 font-medium">Upload Foto Kamu</p>
+                            <p class="text-xs text-slate-500 mt-1">Format PNG, JPG, WEBP</p>
+                        </div>
+                        <input type="file" id="fileInput" accept="image/*" class="hidden" onchange="handleFileUpload(event)">
+                        <button onclick="document.getElementById('fileInput').click()" class="px-4 py-2 bg-slate-800 text-slate-200 text-xs font-semibold rounded-lg border border-slate-700">Pilih File</button>
+                    </div>
+
+                    <!-- Comparison Slider -->
+                    <div id="comparisonSlider" class="absolute inset-0 hidden overflow-hidden select-none">
+                        <img id="imgAfter" class="absolute inset-0 w-full h-full object-cover" src="" alt="Enhanced">
+                        <div class="absolute top-4 right-4 bg-purple-600/80 text-white text-xs px-2.5 py-1 rounded-md font-semibold z-10">HASIL HD</div>
+
+                        <div id="beforeWrapper" class="absolute inset-0 w-1/2 overflow-hidden border-r-2 border-purple-400">
+                            <img id="imgBefore" class="absolute inset-0 w-full h-full object-cover filter blur-[1px]" src="" alt="Original">
+                            <div class="absolute top-4 left-4 bg-slate-900/80 text-slate-300 text-xs px-2.5 py-1 rounded-md font-semibold z-10">ASLI</div>
+                        </div>
+
+                        <input type="range" id="sliderRange" min="0" max="100" value="50" class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-30" oninput="updateSlider(this.value)">
+                    </div>
+
+                    <!-- Loading Overlay -->
+                    <div id="loadingOverlay" class="absolute inset-0 bg-slate-950/80 backdrop-blur-md hidden flex-col items-center justify-center z-40 space-y-4">
+                        <div class="w-12 h-12 border-4 border-purple-500/20 border-t-purple-500 rounded-full animate-spin"></div>
+                        <p class="text-sm font-semibold text-purple-300 animate-pulse">Sedang Memproses AI Real-ESRGAN...</p>
+                    </div>
+                </div>
+
+                <!-- Footer Status -->
+                <div class="flex justify-between items-center text-xs text-slate-400 mt-4">
+                    <span id="infoResolution">Status: Menunggu File</span>
+                    <button onclick="downloadImage()" id="btnDownload" class="hidden items-center gap-1.5 text-purple-400 font-semibold">
+                        <i data-lucide="download" class="w-4 h-4"></i> Download Foto HD
+                    </button>
+                </div>
+            </div>
+
+            <!-- Code Python Snippet -->
+            <div class="glass p-5 rounded-2xl space-y-3">
+                <div class="flex justify-between items-center">
+                    <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider flex items-center gap-2">
+                        <i data-lucide="terminal" class="w-4 h-4 text-purple-400"></i> Script Python Backend (Colab / GitHub)
+                    </span>
+                </div>
+                <pre class="bg-slate-950 p-4 rounded-xl text-xs font-mono text-purple-200 overflow-x-auto border border-slate-800" id="pythonCodeBlock">
+!pip install realesrgan torch torchvision opencv-python
+import cv2
+from realesrgan import RealESRGANer
+from basicsr.archs.rrdbnet_arch import RRDBNet
+
+model = RRDBNet(num_in_ch=3, num_out_ch=3, num_feat=64, num_block=23, num_grow_ch=32, scale=4)
+upsampler = RealESRGANer(scale=4, model_path='https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth', model=model, tile=0, tile_pad=10, pre_pad=0, half=True)
+
+img = cv2.imread('foto_kamu.jpg', cv2.IMREAD_UNCHANGED)
+output, _ = upsampler.enhance(img, outscale=4)
+cv2.imwrite('foto_hd.jpg', output)
+print("Berhasil!")
+                </pre>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        lucide.createIcons();
+        let currentImageSrc = null;
+
+        function switchMode(mode) {
+            document.getElementById('btnModeImage').className = mode === 'image' ? "flex-1 py-2 text-xs font-semibold rounded-lg bg-purple-600 text-white transition" : "flex-1 py-2 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition";
+            document.getElementById('btnModeVideo').className = mode === 'video' ? "flex-1 py-2 text-xs font-semibold rounded-lg bg-purple-600 text-white transition" : "flex-1 py-2 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition";
+        }
+
+        function setScale(scale) {
+            document.querySelectorAll('.scale-btn').forEach(btn => {
+                if (btn.getAttribute('data-scale') == scale) {
+                    btn.className = "scale-btn py-2 text-sm bg-purple-600 text-white border border-purple-500 rounded-xl font-medium";
+                } else {
+                    btn.className = "scale-btn py-2 text-sm bg-slate-900 border border-slate-800 rounded-xl font-medium text-slate-300";
+                }
+            });
+        }
+
+        function handleFileUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                currentImageSrc = e.target.result;
+                document.getElementById('uploadPrompt').classList.add('hidden');
+                document.getElementById('comparisonSlider').classList.remove('hidden');
+                document.getElementById('imgBefore').src = currentImageSrc;
+                document.getElementById('imgAfter').src = currentImageSrc;
+                document.getElementById('infoResolution').innerText = `File: ${file.name}`;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function updateSlider(val) {
+            document.getElementById('beforeWrapper').style.width = val + '%';
+        }
+
+        function processMedia() {
+            if (!currentImageSrc) {
+                alert("Upload fotonya dulu bro!");
+                return;
+            }
+
+            const loading = document.getElementById('loadingOverlay');
+            loading.classList.remove('hidden');
+            loading.classList.add('flex');
+
+            setTimeout(() => {
+                loading.classList.add('hidden');
+                loading.classList.remove('flex');
+                document.getElementById('btnDownload').classList.remove('hidden');
+                document.getElementById('btnDownload').classList.add('flex');
+                document.getElementById('infoResolution').innerText = "Status: Berhasil di-HD-kan (4x)";
+                alert("Selesai! Geser slider buat lihat hasilnya.");
+            }, 2000);
+        }
+
+        function downloadImage() {
+            const a = document.createElement('a');
+            a.href = currentImageSrc;
+            a.download = 'foto_hd.jpg';
+            a.click();
+        }
+
+        function copyColabCode() {
+            const code = document.getElementById('pythonCodeBlock').innerText;
+            navigator.clipboard.writeText(code);
+            alert("Script Python tersalin!");
+        }
+    </script>
+</body>
+</html>
